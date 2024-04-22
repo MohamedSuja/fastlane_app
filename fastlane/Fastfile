@@ -8,7 +8,7 @@ end
 platform :android do
     desc "Build and release a new internal version"
     lane :internal do
-        increment_version_code(app_project_dir: "./android/app")
+        increment_version_code(project_dir: "./android/app")
         gradle(task: "clean", project_dir: "./android")
         gradle(task: "bundle", build_type: "Release", project_dir: "./android")
         supply(track: "internal", aab: "./android/app/build/outputs/bundle/release/app-release.aab")
