@@ -18,7 +18,7 @@ const Home = () => {
     if (purchasingPrice == '') {
       Alert.alert('Please Enter Purchasing Price');
     } else if (unitPrice == '') {
-      Alert.alert('Please Enter Unit Price');
+      Alert.alert('Please Enter Percentage Value');
     } else {
       const value = y + parseInt(purchasingPrice);
       setSalesPrice(value.toFixed(2));
@@ -42,7 +42,7 @@ const Home = () => {
         keyboardType="numeric"
       />
       <TextInput
-        label="Unit Price"
+        label="Percentage Value"
         mode="outlined"
         onChangeText={setUnitPrice}
         value={unitPrice}
