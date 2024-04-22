@@ -2,7 +2,7 @@ before_all do
     ensure_git_branch(
         branch: "fastlane"
     )
-    ensure_git_status_clean
+    #ensure_git_status_clean
 end
 
 platform :android do
@@ -16,11 +16,11 @@ platform :android do
         increment_version_name(
             gradle_file_path: "./android/app/build.gradle"
         )
-        # Commit the version bump
-        commit_version_bump(
-            gradle_file_path: "./android/app/build.gradle"
+        # Commit the version
+        git_commit(
+            path: "./android/app/build.gradle",
+            message: "Version bump"
         )
-
         # Build your Android app
         gradle(task: "clean", project_dir: "./android")
         gradle(task: "bundle", build_type: "Release", project_dir: "./android")
