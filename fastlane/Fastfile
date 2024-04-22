@@ -14,8 +14,7 @@ platform :android do
         )
         # Increment the version name
         increment_version_name(
-            gradle_file_path: "./android/app/build.gradle",
-            version_code: get_version_code(gradle_file_path: "./android/app/build.gradle")
+            gradle_file_path: "./android/app/build.gradle"
         )
         # Commit the version bump
         commit_version_bump(
