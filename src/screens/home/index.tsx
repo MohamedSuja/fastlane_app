@@ -1,8 +1,10 @@
-import {View, Text, Alert} from 'react-native';
+import {View, Text, Alert, ScrollView} from 'react-native';
 import React, {useState} from 'react';
 import styles from './styles';
 import CustomTextInput from '../../components/CustomTextInput';
 import {Appbar, Button, Card, TextInput} from 'react-native-paper';
+import ColorSheet from '../../utils/colorSheet';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const Home = () => {
   const [salesPrice, setSalesPrice] = useState('');
@@ -27,32 +29,56 @@ const Home = () => {
 
   return (
     <View style={styles.root}>
-      <Card style={styles.card} mode="elevated">
-        <Card.Title
-          title="Sales Price"
-          subtitle={salesPrice + (salesPrice && ' RS')}
+      <ScrollView>
+        <Card style={styles.card} mode="elevated">
+          <Card.Title
+            title="Sales Price"
+            subtitle={salesPrice + (salesPrice && ' RS')}
+          />
+        </Card>
+        <TextInput
+          label="Purchasing Price"
+          mode="outlined"
+          onChangeText={setPurchasingPrice}
+          value={purchasingPrice}
+          style={styles.textInput}
+          keyboardType="numeric"
+          theme={{
+            colors: {
+              primary: ColorSheet.Primary,
+            },
+          }}
         />
-      </Card>
-      <TextInput
-        label="Purchasing Price"
-        mode="outlined"
-        onChangeText={setPurchasingPrice}
-        value={purchasingPrice}
-        style={styles.textInput}
-        keyboardType="numeric"
-      />
-      <TextInput
-        label="Percentage Value"
-        mode="outlined"
-        onChangeText={setUnitPrice}
-        value={unitPrice}
-        style={styles.textInput}
-        keyboardType="numeric"
-      />
+        <TextInput
+          label="Percentage Value"
+          mode="outlined"
+          onChangeText={setUnitPrice}
+          value={unitPrice}
+          style={styles.textInput}
+          keyboardType="numeric"
+          theme={{
+            colors: {
+              primary: ColorSheet.Primary,
+            },
+          }}
+        />
 
-      <Button mode="elevated" style={styles.button} onPress={calculate}>
-        Calculate
-      </Button>
+        <Button
+          mode="elevated"
+          labelStyle={{
+            color: ColorSheet.Primary,
+            fontWeight: 'bold',
+            fontSize: RFValue(15),
+          }}
+          style={styles.button}
+          onPress={calculate}>
+          Calculate
+        </Button>
+
+        <View style={styles.logoView}>
+          <Text style={styles.logoText}>VINLAN TRADERS</Text>
+        </View>
+      </ScrollView>
     </View>
   );
 };

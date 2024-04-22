@@ -1,0 +1,17 @@
+before_all do
+    ensure_git_branch(
+        branch: "fastlane"
+    )
+    ensure_git_status_clean
+    git pull
+end
+
+platform :android do
+    desc "Build and release a new internal version"
+    lane :internal do
+        increment_version_code(app_project_dir: "./android/app")
+        gradle(task: "clean", project_dir: "./android")
+        gradle(task: "bundle", build_type: "Release", project_dir: "./android")
+        supply(track: "internal", aab: "./android/app/build/outputs/bundle/release/app-release.aab")
+    end
+end
