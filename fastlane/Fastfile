@@ -2,7 +2,7 @@ before_all do
     ensure_git_branch(
         branch: "fastlane"
     )
-    #ensure_git_status_clean
+    ensure_git_status_clean
 end
 
 platform :android do
@@ -23,7 +23,7 @@ platform :android do
         )
         # Build your Android app
         gradle(task: "clean", project_dir: "./android")
-        gradle(task: "bundle", build_type: "Release", project_dir: "./android")
+        gradle(task: "assemble", build_type: "Release", project_dir: "./android")
      
     end
 end
