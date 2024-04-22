@@ -6,11 +6,24 @@ before_all do
 end
 
 platform :android do
-    desc "Build and release a new internal version"
-    lane :internal do
-        increment_version_code(project_dir: "./android/app")
+    desc "Build and release a new beta version"
+    lane :beta do
+        # Increment the version code
+        increment_version_code(
+            gradle_file_path: "./android/app/build.gradle"
+        )
+        # Increment the version name
+        increment_version_name(
+            gradle_file_path: "./android/app/build.gradle"
+        )
+        # Commit the version bump
+        commit_version_bump(
+            gradle_file_path: "./android/app/build.gradle"
+        )
+
+        # Build your Android app
         gradle(task: "clean", project_dir: "./android")
         gradle(task: "bundle", build_type: "Release", project_dir: "./android")
-        supply(track: "internal", aab: "./android/app/build/outputs/bundle/release/app-release.aab")
+     
     end
 end
