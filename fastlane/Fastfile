@@ -3,7 +3,6 @@ before_all do
         branch: "fastlane"
     )
     ensure_git_status_clean
-    git pull
 end
 
 platform :android do
