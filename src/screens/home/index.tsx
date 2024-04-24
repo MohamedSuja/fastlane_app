@@ -1,4 +1,4 @@
-import {View, Text, Alert, ScrollView} from 'react-native';
+import {View, Text, Alert, ScrollView, StatusBar} from 'react-native';
 import React, {useState} from 'react';
 import styles from './styles';
 import CustomTextInput from '../../components/CustomTextInput';
@@ -29,6 +29,13 @@ const Home = () => {
 
   return (
     <View style={styles.root}>
+      <StatusBar
+        backgroundColor={ColorSheet.Secondary}
+        barStyle={'dark-content'}
+      />
+      <View style={styles.logoView}>
+        <Text style={styles.logoText}>VINLAN TRADERS</Text>
+      </View>
       <ScrollView>
         <Card style={styles.card} mode="elevated">
           <Card.Title
@@ -74,10 +81,6 @@ const Home = () => {
           onPress={calculate}>
           Calculate
         </Button>
-
-        <View style={styles.logoView}>
-          <Text style={styles.logoText}>VINLAN TRADERS</Text>
-        </View>
       </ScrollView>
     </View>
   );

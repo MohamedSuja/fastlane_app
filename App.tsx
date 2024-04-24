@@ -6,9 +6,7 @@ import {PaperProvider} from 'react-native-paper';
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
-      <PaperProvider>
-        <Home />
-      </PaperProvider>
+      <Home />
     </SafeAreaView>
   );
 };
@@ -16,6 +14,7 @@ const App = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    backgroundColor: '#fff',
   },
 });
 

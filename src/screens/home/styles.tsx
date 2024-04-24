@@ -28,20 +28,15 @@ const styles = StyleSheet.create({
   },
   logoView: {
     alignItems: 'center',
-    marginTop: hp(5),
-    marginBottom: hp(5),
-    marginLeft: wp(4),
-    marginRight: wp(4),
-    backgroundColor: ColorSheet.Primary,
-    height: hp(20),
+    backgroundColor: ColorSheet.Secondary,
+    height: hp(7),
     justifyContent: 'center',
-    borderColor: '#000',
-    borderWidth: 1,
+    borderColor: ColorSheet.Shadow,
+    borderBottomWidth: 1,
   },
   logoText: {
     fontSize: RFValue(15),
-
-    color: 'white',
+    color: ColorSheet.Primary,
     fontWeight: '700',
   },
 });
