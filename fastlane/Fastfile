@@ -1,6 +1,6 @@
 before_all do
     ensure_git_branch(
-        branch: "fastlane"
+        branch: "hader"
     )
     ensure_git_status_clean
 end
