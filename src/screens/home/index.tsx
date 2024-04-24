@@ -14,7 +14,7 @@ const Home = () => {
   const mainPrice = 100000;
 
   const x = mainPrice / parseInt(purchasingPrice);
-  const y = 16000 / parseInt(unitPrice);
+  const y = parseInt(unitPrice) / x;
 
   const calculate = () => {
     if (purchasingPrice == '') {
